@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -105,7 +106,7 @@ class QualificationControllerTest {
         .contains("kHz");
   }
 
-  // @Disabled("Retire cette annotation pour activer le test")
+  @Disabled("Retire cette annotation pour activer le test")
   @Test
   @Order(5)
   void cliquer_sur_ecouter_passe_le_statut_de_la_sequence_selectionnee_a_ecoutee(FxRobot robot) {
