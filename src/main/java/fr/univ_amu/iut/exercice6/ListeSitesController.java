@@ -29,18 +29,31 @@ public class ListeSitesController {
     // TODO exercice 6 : ajouter une nouvelle SiteCarte au VBox `conteneurCartes`.
     //
     // 1. Incrémenter compteurDemo (1, 2, 3, ...).
+    compteurDemo += 1;
     // 2. Construire une SiteCarte et alimenter ses propriétés :
-    //      - numéro de carré : "Carré " + (640000 + compteurDemo) (format à 6 chiffres garanti
-    //        par la base 640000)
-    //      - nom convivial : "📍 Site de démonstration #" + compteurDemo
-    //      - nombre de points : (compteurDemo % 3) + 1
-    //      - nombre de passages : compteurDemo * 2
-    //      - jours depuis dernier passage : compteurDemo * 4 (0 -> 4 -> 8 -> 12 -> 16 -> ...)
-    //        ce qui fait passer les badges du frais à l'orange puis au gris au fil des ajouts.
-    // 3. Ajouter la carte au début (index 0) du VBox pour que les nouveaux sites apparaissent en
-    //    haut, comme dans un flux d'activité.
+    // - numéro de carré : "Carré " + (640000 + compteurDemo) (format à 6 chiffres
+    // garanti
+    // par la base 640000)
+    // - nom convivial : "📍 Site de démonstration #" + compteurDemo
+    // - nombre de points : (compteurDemo % 3) + 1
+    // - nombre de passages : compteurDemo * 2
+    // - jours depuis dernier passage : compteurDemo * 4 (0 -> 4 -> 8 -> 12 -> 16 ->
+    // ...)
+    // ce qui fait passer les badges du frais à l'orange puis au gris au fil des
+    // ajouts.
+    SiteCarte carte = new SiteCarte();
+    carte.setNumeroCarre(String.format("Carré %d", 640000 + compteurDemo));
+    carte.setNomConvivial(String.format("📍 Site de démonstration #%d", compteurDemo));
+    carte.setNombrePoints((compteurDemo % 3) + 1);
+    carte.setNombrePassages(compteurDemo * 2);
+    carte.setJoursDepuisDernierPassage(compteurDemo * 4);
+    // 3. Ajouter la carte au début (index 0) du VBox pour que les nouveaux sites
+    // apparaissent en
+    conteneurCartes.getChildren().add(0, carte);
+    // haut, comme dans un flux d'activité.
     // 4. Retourner conteneurCartes.getChildren().size().
-    int total = 0;
+    int total = getNombreCartes();
+
     return total;
   }
 
